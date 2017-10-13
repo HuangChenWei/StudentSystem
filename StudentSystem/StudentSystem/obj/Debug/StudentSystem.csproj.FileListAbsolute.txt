@@ -1,0 +1,5 @@
+D:\s1022673\StudentSystem\StudentSystem\bin\StudentSystem.dll
+D:\s1022673\StudentSystem\StudentSystem\bin\StudentSystem.pdb
+D:\s1022673\StudentSystem\StudentSystem\obj\Debug\StudentSystem.dll
+D:\s1022673\StudentSystem\StudentSystem\obj\Debug\StudentSystem.pdb
+D:\s1022673\StudentSystem\StudentSystem\obj\Debug\StudentSystem.csprojResolveAssemblyReference.cache
