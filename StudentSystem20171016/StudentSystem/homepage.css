@@ -1,0 +1,12 @@
+﻿body{
+   
+}
+
+li {
+    margin: 0 15px; /* 讓每個 li 左右都有 15px 的間隔（li 和 li 間共隔 30px）*/
+}
+
+#navrow {
+    width:100%;
+}
+
