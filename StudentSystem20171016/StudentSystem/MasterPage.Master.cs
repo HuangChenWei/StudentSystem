@@ -19,19 +19,19 @@ namespace StudentSystem
         {
             string str = HumanComputerBtn.Text.Trim();
             Session["CourseName"] = str;
-            Response.Redirect("~/Human-ComputerInteractionDesign.aspx");
+            Response.Redirect("~/CourseStList.aspx");
         }
         protected void WindowsBtn_Click(object sender, EventArgs e)
         {
             string str = WindowsBtn.Text.Trim();
             Session["CourseName"] = str;
-            Response.Redirect("~/Human-ComputerInteractionDesign.aspx");
+            Response.Redirect("~/CourseStList.aspx");
         }
         protected void ComputerProgrammingBtn_Click(object sender, EventArgs e)
         {
             string str = ComputerProgrammingBtn.Text.Trim();
             Session["CourseName"] = str;
-            Response.Redirect("~/Human-ComputerInteractionDesign.aspx");
+            Response.Redirect("~/CourseStList.aspx");
         }
     }
 }

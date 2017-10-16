@@ -42,7 +42,7 @@ namespace StudentSystem
                 UserName = Convert.ToString(dt.Rows[i]["UserName"]);
                 adapter2 = new SqlDataAdapter(
                     "Select Department, Class, UserName,"
-                    + "FullName From Accounts Where UserName='"
+                    + "FullName From Accounts Where type = 1 And UserName='"
                     + UserName + "'", con);
                 adapter2.Fill(dt2);
             }
