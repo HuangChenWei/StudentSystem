@@ -3,3 +3,8 @@ D:\s1022673\StudentSystem\StudentSystem\bin\StudentSystem.pdb
 D:\s1022673\StudentSystem\StudentSystem\obj\Debug\StudentSystem.dll
 D:\s1022673\StudentSystem\StudentSystem\obj\Debug\StudentSystem.pdb
 D:\s1022673\StudentSystem\StudentSystem\obj\Debug\StudentSystem.csprojResolveAssemblyReference.cache
+C:\Users\ChenWei\Documents\GitHub\StudentSystem\StudentSystem20171016\StudentSystem\bin\StudentSystem.dll
+C:\Users\ChenWei\Documents\GitHub\StudentSystem\StudentSystem20171016\StudentSystem\bin\StudentSystem.pdb
+C:\Users\ChenWei\Documents\GitHub\StudentSystem\StudentSystem20171016\StudentSystem\obj\Debug\StudentSystem.csprojResolveAssemblyReference.cache
+C:\Users\ChenWei\Documents\GitHub\StudentSystem\StudentSystem20171016\StudentSystem\obj\Debug\StudentSystem.dll
+C:\Users\ChenWei\Documents\GitHub\StudentSystem\StudentSystem20171016\StudentSystem\obj\Debug\StudentSystem.pdb

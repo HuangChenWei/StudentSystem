@@ -58,8 +58,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ComputerProgramming%28I%29.aspx" />
     <Content Include="contect.aspx" />
+    <Content Include="CourseStList.aspx" />
     <Content Include="default.aspx" />
     <Content Include="Demo.aspx" />
     <Content Include="HomePage.aspx" />
@@ -70,22 +70,21 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="WindowsProgramming.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComputerProgramming%28I%29.aspx.cs">
-      <DependentUpon>ComputerProgramming%28I%29.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ComputerProgramming%28I%29.aspx.designer.cs">
-      <DependentUpon>ComputerProgramming%28I%29.aspx</DependentUpon>
-    </Compile>
     <Compile Include="contect.aspx.cs">
       <DependentUpon>contect.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="contect.aspx.designer.cs">
       <DependentUpon>contect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CourseStList.aspx.cs">
+      <DependentUpon>CourseStList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CourseStList.aspx.designer.cs">
+      <DependentUpon>CourseStList.aspx</DependentUpon>
     </Compile>
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
@@ -136,13 +135,6 @@
     </Compile>
     <Compile Include="TA_List.aspx.designer.cs">
       <DependentUpon>TA_List.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="WindowsProgramming.aspx.cs">
-      <DependentUpon>WindowsProgramming.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WindowsProgramming.aspx.designer.cs">
-      <DependentUpon>WindowsProgramming.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

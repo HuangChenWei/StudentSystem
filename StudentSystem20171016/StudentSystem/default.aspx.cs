@@ -21,7 +21,7 @@ namespace StudentSystem
                    WebConfigurationManager.ConnectionStrings["myDB"].ConnectionString);
 
             SqlDataAdapter ad = new SqlDataAdapter(
-                        "SELECT ID FROM StudentFile", con);
+                        "SELECT ID FROM Accounts", con);
 
             DataTable dt = new DataTable();
             ad.Fill(dt);
@@ -44,7 +44,7 @@ namespace StudentSystem
         {
             SqlConnection con = new SqlConnection(
                    WebConfigurationManager.ConnectionStrings["myDB"].ConnectionString);
-            SqlCommand cmd = new SqlCommand("Select UserName, Password From StudentFile", con);
+            SqlCommand cmd = new SqlCommand("Select UserName, Password From Accounts", con);
             con.Open();
 
             //string num = Convert.ToString(cmd.ExecuteScalar());
@@ -96,7 +96,7 @@ namespace StudentSystem
             con.Open();
             //cmd = new SqlCommand("insert into StudentFile (FullName) values(@FullName);SELECT @@IDENTITY", con);
             //建立SqlCommand查詢命令
-            cmd = new SqlCommand("Insert Into StudentFile (ID, FullName, UserName, Password, Department, Class) values (@ID, @FullName, @UserName, @Password, @Department, @Class)", con);
+            cmd = new SqlCommand("Insert Into Accounts (ID, FullName, UserName, Password, Department, Class) values (@ID, @FullName, @UserName, @Password, @Department, @Class)", con);
             cmd.Parameters.Add("@ID", SqlDbType.NVarChar).Value = Convert.ToInt16(Session["id"]) + 1;
             cmd.Parameters.Add("@FullName", SqlDbType.NVarChar).Value = FullNameTextBox.Text;
             cmd.Parameters.Add("@UserName", SqlDbType.NVarChar).Value = UserNameTextBox.Text;

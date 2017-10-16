@@ -14,11 +14,11 @@ namespace StudentSystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string Course = "人機互動設計";
+            string Course = Convert.ToString(Session["CourseName"]).Trim();
             SqlConnection con = new SqlConnection(
                 WebConfigurationManager.ConnectionStrings["myDB"].ConnectionString);
             con.Open();
-            SqlDataAdapter adapter = new SqlDataAdapter("Select UserName, CourseID, DisplayName From Courses Where DisplayName='" + Course + "'", con);
+            SqlDataAdapter adapter = new SqlDataAdapter("Select UserName, CourseID, DisplayName From StudentCoursesList Where DisplayName='" + Course + "'", con);
 
             DataTable dt = new DataTable();
             adapter.Fill(dt);
@@ -28,7 +28,7 @@ namespace StudentSystem
             DataTable table = new DataTable();
             //---------------課程資訊Table---------------//
             adapter3 = new SqlDataAdapter(
-                   "Select term From StudentFile Where UserName='"
+                   "Select term From Accounts Where UserName='"
                    + Session["id"] + "'", con);
             DataTable dt3 = new DataTable();
             adapter3.Fill(dt3);

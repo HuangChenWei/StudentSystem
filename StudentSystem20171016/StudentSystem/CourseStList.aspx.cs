@@ -10,7 +10,7 @@ using System.Web.Configuration;
 
 namespace StudentSystem
 {
-    public partial class Human_ComputerInteractionDesign : System.Web.UI.Page
+    public partial class CourseStList : System.Web.UI.Page
     {
         public int RowCount;
         protected void Page_Load(object sender, EventArgs e)
@@ -36,15 +36,13 @@ namespace StudentSystem
 
             DataTable table = new DataTable();
 
-
-
             //------用學號select StudentFile資料------//
             for (int i = 0; i < RowCount; i++)
             {
                 UserName = Convert.ToString(dt.Rows[i]["UserName"]);
                 adapter2 = new SqlDataAdapter(
                     "Select Department, Class, UserName,"
-                    + "FullName From Accounts Where type=1 and UserName='"
+                    + "FullName From Accounts Where UserName='"
                     + UserName + "'", con);
                 adapter2.Fill(dt2);
             }
@@ -71,10 +69,10 @@ namespace StudentSystem
             CourseInformationGridView.DataBind();
 
             //--------------修改欄位名--------------//
-            dt2.Columns["Department"].ColumnName = "系名";
-            dt2.Columns["Class"].ColumnName = "班級";
-            dt2.Columns["UserName"].ColumnName = "學號";
-            dt2.Columns["FullName"].ColumnName = "姓名";
+            //dt2.Columns["Department"].ColumnName = "系名";
+            //dt2.Columns["Class"].ColumnName = "班級";
+            //dt2.Columns["UserName"].ColumnName = "學號";
+            //dt2.Columns["FullName"].ColumnName = "姓名";
             StudentListGridView.DataSource = dt2;
             StudentListGridView.DataBind();
         }

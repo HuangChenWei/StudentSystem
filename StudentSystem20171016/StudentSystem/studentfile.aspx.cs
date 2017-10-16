@@ -26,7 +26,7 @@ namespace StudentSystem
             //-----------------個人檔案的資料table-----------------頭//
 
             //where 查詢的那筆資料  Select 要更改的筆資料
-            SqlCommand cmd = new SqlCommand("Select * From StudentFile Where UserName='" 
+            SqlCommand cmd = new SqlCommand("Select * From Accounts Where UserName='" 
                 + Convert.ToString(Session["UserName"]).Trim() + "' ", con);
             con.Open();
             SqlDataReader reader = cmd.ExecuteReader();
@@ -59,7 +59,7 @@ namespace StudentSystem
             }
             //-----------------個人檔案的資料table-----------------尾//
             //-----------------學期和修課table-----------------頭//
-            cmd = new SqlCommand("Select DisplayName From Courses Where UserName='" 
+            cmd = new SqlCommand("Select DisplayName From StudentCoursesList Where UserName='" 
                 + Convert.ToString(Session["UserName"]).Trim() + "' ", con);
 
             SqlDataReader reader2 = cmd.ExecuteReader();
@@ -113,7 +113,7 @@ namespace StudentSystem
         {
             SqlConnection con = new SqlConnection(
                    WebConfigurationManager.ConnectionStrings["myDB"].ConnectionString);
-            SqlCommand cmd = new SqlCommand("Select Password From StudentFile Where UserName='" 
+            SqlCommand cmd = new SqlCommand("Select Password From Accounts Where UserName='" 
                 + Convert.ToString(Session["UserName"]).Trim() + "' ", con);
 
             try
@@ -122,7 +122,7 @@ namespace StudentSystem
                 {
                     con.Open();
                     //依照Session的(帳號/學號)去找尋這筆帳號的密並UPDATE
-                    cmd = new SqlCommand("UPDATE StudentFile SET Password = @Password WHERE UserName='" 
+                    cmd = new SqlCommand("UPDATE Accounts SET Password = @Password WHERE UserName='" 
                         + Convert.ToString(Session["UserName"]).Trim() + "' ", con);
                     cmd.Parameters.Add("@Password", SqlDbType.NVarChar, 50).Value = newpwd.Text.Trim();
                     cmd.ExecuteNonQuery();
