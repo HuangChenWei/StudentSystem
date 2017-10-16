@@ -74,7 +74,7 @@
     <div>
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" href="/Human-ComputerInteractionDesign.aspx">學生</a>
+                <a class="nav-link" href="/CourseStList.aspx">學生</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/TA_List.aspx">助教</a>
@@ -98,7 +98,9 @@
         </table>--%>
         <div class="container">
             <div class="col align-self-center">
-                <h3>人機互動設計</h3>
+                <h3>
+                    <asp:Label ID="coursename" runat="server" />
+                </h3>
             </div>
         </div>
         <div>

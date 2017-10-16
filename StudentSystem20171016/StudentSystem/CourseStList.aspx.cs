@@ -18,10 +18,10 @@ namespace StudentSystem
             //string Course = "人機互動設計";
             string Course = Convert.ToString(Session["CourseName"]).Trim();
             string UserName = "";
+            coursename.Text = Course;
             SqlConnection con = new SqlConnection(
                    WebConfigurationManager.ConnectionStrings["myDB"].ConnectionString);
             con.Open();
-
 
             //----Select 有修人機互動設計的學生學號----//
             SqlDataAdapter adapter = new SqlDataAdapter("Select UserName, CourseID, DisplayName From StudentCoursesList Where DisplayName='" + Course + "'", con);
@@ -69,10 +69,10 @@ namespace StudentSystem
             CourseInformationGridView.DataBind();
 
             //--------------修改欄位名--------------//
-            //dt2.Columns["Department"].ColumnName = "系名";
-            //dt2.Columns["Class"].ColumnName = "班級";
-            //dt2.Columns["UserName"].ColumnName = "學號";
-            //dt2.Columns["FullName"].ColumnName = "姓名";
+            dt2.Columns["Department"].ColumnName = "系名";
+            dt2.Columns["Class"].ColumnName = "班級";
+            dt2.Columns["UserName"].ColumnName = "學號";
+            dt2.Columns["FullName"].ColumnName = "姓名";
             StudentListGridView.DataSource = dt2;
             StudentListGridView.DataBind();
         }

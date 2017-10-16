@@ -64,7 +64,6 @@
     <Content Include="Demo.aspx" />
     <Content Include="HomePage.aspx" />
     <Content Include="homepage.css" />
-    <Content Include="Human-ComputerInteractionDesign.aspx" />
     <Content Include="studentfile.aspx" />
     <Content Include="TA_List.aspx" />
     <Content Include="Web.config">
@@ -106,13 +105,6 @@
     </Compile>
     <Compile Include="HomePage.aspx.designer.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Human-ComputerInteractionDesign.aspx.cs">
-      <DependentUpon>Human-ComputerInteractionDesign.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Human-ComputerInteractionDesign.aspx.designer.cs">
-      <DependentUpon>Human-ComputerInteractionDesign.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
