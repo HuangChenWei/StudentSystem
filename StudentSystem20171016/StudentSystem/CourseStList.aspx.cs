@@ -17,6 +17,7 @@ namespace StudentSystem
         {
             //string Course = "人機互動設計";
             string Course = Convert.ToString(Session["CourseName"]).Trim();
+            //字串UserName是學號
             string UserName = "";
             coursename.Text = Course;
             SqlConnection con = new SqlConnection(
@@ -49,8 +50,8 @@ namespace StudentSystem
 
             //---------------課程資訊Table---------------//
             adapter3 = new SqlDataAdapter(
-                   "Select term From Accounts Where UserName='"
-                   + UserName + "'", con);
+                   "Select Belong, CourseID, Year, Semester, DisplayName From Courses Where DisplayName='"
+                   + Course + "'", con);
             DataTable dt3 = new DataTable();
             adapter3.Fill(dt3);
             table.Columns.Add(new DataColumn("學期"));
@@ -58,12 +59,12 @@ namespace StudentSystem
             table.Columns.Add(new DataColumn("課程名稱"));
             table.Columns.Add(new DataColumn("教師姓名"));
             DataRow row = table.NewRow();
-            Session["term"] = Convert.ToString(dt3.Rows[0]["term"]);
-            Session["CourseID"] = Convert.ToString(dt.Rows[0]["CourseID"]);
+            Session["term"] = Convert.ToString(dt3.Rows[0]["Year"]) + Convert.ToString(dt3.Rows[0]["Semester"]);
+            Session["CourseID"] = Convert.ToString(dt3.Rows[0]["CourseID"]);
             row["學期"] = Convert.ToString(Session["term"]);
             row["課號"] = Convert.ToString(Session["CourseID"]);
-            row["課程名稱"] = Course;
-            row["教師姓名"] = "周志岳";
+            row["課程名稱"] = Convert.ToString(dt3.Rows[0]["DisplayName"]);
+            row["教師姓名"] = Convert.ToString(dt3.Rows[0]["Belong"]);
             table.Rows.Add(row);
             CourseInformationGridView.DataSource = table;
             CourseInformationGridView.DataBind();
