@@ -60,13 +60,7 @@
     </style>
 
     <script type="text/javascript">
-        //function AddStudentData() {
-        //        document.getElementById("tr2").innerHTML =
-        //        document.getElementById("tr2").innerHTML
-        //}
-        //function foo() {
-        //    $('#div').append('<tr><th>ID</th><th>系名</th> <th>班級</th> <th>學號</th><th>姓名</th></tr>');
-        //}
+
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -104,7 +98,7 @@
             </div>
         </div>
         <div>
-            <strong>學生清單</strong>
+            <strong style="font-size:20px">學生清單</strong>
         </div>
         <div style="padding: 10px 5px">
             <asp:GridView ID="CourseInformationGridView" runat="server" Style="width: 100%;" CssClass="gvStyle" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr"></asp:GridView>

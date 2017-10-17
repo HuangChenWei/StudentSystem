@@ -25,6 +25,7 @@ namespace StudentSystem
 
             DataTable dt = new DataTable();
             ad.Fill(dt);
+            //紀錄流水號
             Session["id"] = Convert.ToInt32(dt.Rows[dt.Rows.Count - 1]["ID"]);
             ////TextBox1.Text = Convert.ToString(dt.Rows.Count + 1);
             //String UserName = Convert.ToString(dt.Rows[dt.Rows.Count - 1]["UserName"]);
@@ -115,28 +116,5 @@ namespace StudentSystem
             //txtMsg.Text = string.Format("新增產品資料記錄{0}筆成功！", rows);
         }
         //--------------建立用戶button--------------尾//
-        
-        private void userpasswd_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-            if ((e.KeyChar >= 'a' && e.KeyChar <= 'z') || (e.KeyChar >= 'A' && e.KeyChar <= 'Z') || Char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-            else
-            {
-                e.Handled = false;
-            }
-
-        }
-        private void userid_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-            if (e.KeyChar >= 48 && e.KeyChar <= 57)
-            {
-                e.Handled = true;
-            }
-
-        }
     }
 }

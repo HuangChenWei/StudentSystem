@@ -63,7 +63,7 @@
     <div>
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link active" href="/Human-ComputerInteractionDesign.aspx">學生</a>
+                <a class="nav-link active" href="/CourseStList.aspx">學生</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/TA_List.aspx">助教</a>
@@ -73,6 +73,44 @@
     <div class="container-fluid">
         <div style="padding: 10px 5px">
             <asp:GridView ID="CourseInformationGridView" runat="server" Style="width: 100%;" CssClass="gvStyle" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr"></asp:GridView>
+        </div>
+    </div>
+    <%--<div class="container-fluid">
+        <div style="padding: 10px 5px">
+            <strong>新增課堂助教</strong>
+        </div>
+        <div>
+            <div class="row" style="padding: 5px 20px">
+                <div>
+                    <asp:TextBox type="text" class="form-control" ID="SearchTxt" placeholder="輸入學號" runat="server" MaxLength="8" Style="height: 79%" />
+                </div>
+                <div>
+                    <asp:Button ID="SearchBtn" type="button" class="btn btn-outline-dark btn-sm" Text="Search" runat="server"></asp:Button>
+                </div>
+            </div>
+        </div>
+    </div>--%>
+
+    <div class="container-fluid">
+        <div class="row" style="padding-top: 20px">
+            <div class="col-4">
+                <strong style="font-size:20px">助教清單</strong>
+            </div>
+            <div class="col-8">
+                <div class="row">
+                    <div>
+                        <asp:TextBox type="text" class="form-control" ID="SearchTxt" placeholder="輸入學號" runat="server" MaxLength="8" Style="height: 79%" />
+                    </div>
+                    <div>
+                        <asp:Button ID="SearchBtn" type="button" class="btn btn-outline-dark btn-sm" Text="Search" runat="server"></asp:Button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div style="padding: 10px 5px">
+            <asp:GridView ID="GridView1" runat="server" Style="width: 100%;" CssClass="gvStyle" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr"></asp:GridView>
         </div>
     </div>
 </asp:Content>

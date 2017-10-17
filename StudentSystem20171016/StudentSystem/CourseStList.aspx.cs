@@ -50,23 +50,28 @@ namespace StudentSystem
 
             //---------------課程資訊Table---------------//
             adapter3 = new SqlDataAdapter(
-                   "Select Belong, CourseID, Year, Semester, DisplayName From Courses Where DisplayName='"
+                   "Select Year, Semester, CourseID, DisplayName, Belong From Courses Where DisplayName='"
                    + Course + "'", con);
             DataTable dt3 = new DataTable();
             adapter3.Fill(dt3);
-            table.Columns.Add(new DataColumn("學期"));
-            table.Columns.Add(new DataColumn("課號"));
-            table.Columns.Add(new DataColumn("課程名稱"));
-            table.Columns.Add(new DataColumn("教師姓名"));
-            DataRow row = table.NewRow();
-            Session["term"] = Convert.ToString(dt3.Rows[0]["Year"]) + Convert.ToString(dt3.Rows[0]["Semester"]);
-            Session["CourseID"] = Convert.ToString(dt3.Rows[0]["CourseID"]);
-            row["學期"] = Convert.ToString(Session["term"]);
-            row["課號"] = Convert.ToString(Session["CourseID"]);
-            row["課程名稱"] = Convert.ToString(dt3.Rows[0]["DisplayName"]);
-            row["教師姓名"] = Convert.ToString(dt3.Rows[0]["Belong"]);
-            table.Rows.Add(row);
-            CourseInformationGridView.DataSource = table;
+            dt3.Columns["Year"].ColumnName = "學年";
+            dt3.Columns["Semester"].ColumnName = "學期";
+            dt3.Columns["CourseID"].ColumnName = "課號";
+            dt3.Columns["DisplayName"].ColumnName = "課程名稱";
+            dt3.Columns["Belong"].ColumnName = "教師姓名";
+            //table.Columns.Add(new DataColumn("學期"));
+            //table.Columns.Add(new DataColumn("課號"));
+            //table.Columns.Add(new DataColumn("課程名稱"));
+            //table.Columns.Add(new DataColumn("教師姓名"));
+            //DataRow row = table.NewRow();
+            //Session["term"] = Convert.ToString(dt3.Rows[0]["Year"]) + Convert.ToString(dt3.Rows[0]["Semester"]);
+            //Session["CourseID"] = Convert.ToString(dt3.Rows[0]["CourseID"]);
+            //row["學期"] = Convert.ToString(Session["term"]);
+            //row["課號"] = Convert.ToString(Session["CourseID"]);
+            //row["課程名稱"] = Convert.ToString(dt3.Rows[0]["DisplayName"]);
+            //row["教師姓名"] = Convert.ToString(dt3.Rows[0]["Belong"]);
+            //table.Rows.Add(row);
+            CourseInformationGridView.DataSource = dt3;
             CourseInformationGridView.DataBind();
 
             //--------------修改欄位名--------------//
