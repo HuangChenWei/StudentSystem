@@ -17,14 +17,14 @@ namespace StudentSystem
         {
             //string Course = "人機互動設計";
             string Course = Convert.ToString(Session["CourseName"]).Trim();
-            //字串UserName是學號
+            //學號UserName
             string UserName = "";
             coursename.Text = Course;
             SqlConnection con = new SqlConnection(
                    WebConfigurationManager.ConnectionStrings["myDB"].ConnectionString);
             con.Open();
 
-            //----Select 有修人機互動設計的學生學號----//
+            //----Select 人機互動設計學生的學號----//
             SqlDataAdapter adapter = new SqlDataAdapter("Select UserName, CourseID, DisplayName From StudentCoursesList Where DisplayName='" + Course + "'", con);
             SqlDataAdapter adapter2 = new SqlDataAdapter();
             SqlDataAdapter adapter3 = new SqlDataAdapter();
