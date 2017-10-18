@@ -61,9 +61,6 @@
             margin-bottom: 10px;
         }
 
-        #TextBox5 {
-            width: 100%;
-        }
     </style>
 </head>
 <body>

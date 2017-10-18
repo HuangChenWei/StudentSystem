@@ -102,14 +102,12 @@
     </style>
 </head>
 <body>
-
     <form id="form1" runat="server">
         <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
             <div class="container-fluid">
                 <div class="row">
                     <a class="navbar-brand" href="#">學習管理系統平台</a>
                     <small class="text-muted">Learning Management System</small>
-
                     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -126,9 +124,9 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">課程</a>
                             <div class="dropdown-menu">
-                                <asp:LinkButton ID="HumanComputerBtn" class="dropdown-item" Text="人機互動設計"  OnClick="HumanComputerBtn_Click" runat="server"/>
-                                <asp:LinkButton ID="WindowsBtn" class="dropdown-item" Text="視窗程式設計"  OnClick="WindowsBtn_Click" runat="server"/>
-                                <asp:LinkButton ID="ComputerProgrammingBtn" class="dropdown-item" Text="程式設計(一)"  OnClick="ComputerProgrammingBtn_Click" runat="server"/>
+                                <asp:LinkButton ID="HumanComputerBtn" class="dropdown-item" Text="人機互動設計" OnClick="HumanComputerBtn_Click" runat="server" />
+                                <asp:LinkButton ID="WindowsBtn" class="dropdown-item" Text="視窗程式設計" OnClick="WindowsBtn_Click" runat="server" />
+                                <asp:LinkButton ID="ComputerProgrammingBtn" class="dropdown-item" Text="程式設計(一)" OnClick="ComputerProgrammingBtn_Click" runat="server" />
                             </div>
                         </li>
                     </ul>
@@ -159,7 +157,6 @@
                             <a class="nav-link" href="#">討論區</a>
                         </li>
                     </ul>
-
                     <ul class="nav nav-pills flex-column" id="span1">
                         <li class="nav-item">
                             <a class="nav-link active" href="#">學習系統</a>
@@ -176,7 +173,6 @@
                     </ul>
                     <a href="javascript:" onclick="addField()">新增欄位</a>
                 </nav>
-
             </div>
         </div>
         <div id="page" class="container">

@@ -25,7 +25,7 @@ namespace StudentSystem
             con.Open();
 
             //----Select 人機互動設計學生的學號----//
-            SqlDataAdapter adapter = new SqlDataAdapter("Select UserName, CourseID, DisplayName From StudentCoursesList Where DisplayName='" + Course + "'", con);
+            SqlDataAdapter adapter = new SqlDataAdapter("Select UserName, CourseID, DisplayName From StudentCoursesList Where Type=1 and DisplayName='" + Course + "'", con);
             SqlDataAdapter adapter2 = new SqlDataAdapter();
             SqlDataAdapter adapter3 = new SqlDataAdapter();
             DataTable dt = new DataTable();
@@ -43,7 +43,7 @@ namespace StudentSystem
                 UserName = Convert.ToString(dt.Rows[i]["UserName"]);
                 adapter2 = new SqlDataAdapter(
                     "Select Department, Class, UserName,"
-                    + "FullName From Accounts Where type = 1 And UserName='"
+                    + "FullName From Accounts Where type=1 And UserName='"
                     + UserName + "'", con);
                 adapter2.Fill(dt2);
             }

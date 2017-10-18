@@ -65,10 +65,10 @@ namespace StudentSystem
                         Session["login"] = "OK";
                         Response.Redirect("~/contect.aspx");
                     }
-                    //if (userid.Text != String.Format("{0}", reader["UserName"]).Trim() && userpasswd.Text != String.Format("{0}", reader["Password"]).Trim())
-                    //{
-                    //    Page.ClientScript.RegisterStartupScript(Page.GetType(), "", "<script language=JavaScript>showModal();</script>");
-                    //}
+                    if (userid.Text != String.Format("{0}", reader["UserName"]).Trim() && userpasswd.Text != String.Format("{0}", reader["Password"]).Trim())
+                    {
+                        Page.ClientScript.RegisterStartupScript(Page.GetType(), "", "<script language=JavaScript>showModal();</script>");
+                    }
                 }
             }
             catch (Exception ex)

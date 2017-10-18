@@ -97,11 +97,11 @@
                 </h3>
             </div>
         </div>
-        <div>
-            <strong style="font-size:20px">學生清單</strong>
-        </div>
         <div style="padding: 10px 5px">
             <asp:GridView ID="CourseInformationGridView" runat="server" Style="width: 100%;" CssClass="gvStyle" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr"></asp:GridView>
+        </div>
+        <div>
+            <strong style="font-size: 20px">學生清單</strong>
         </div>
         <div style="padding: 10px 5px">
             <asp:GridView ID="StudentListGridView" runat="server" Style="width: 100%;" CssClass="gvStyle" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr"></asp:GridView>
