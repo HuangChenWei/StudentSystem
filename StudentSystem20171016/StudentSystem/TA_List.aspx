@@ -8,9 +8,7 @@
         function showModal() {
             $('#exampleModal').modal('toggle')
         }
-        function aaa() {
-            alert("測試");
-        }
+
 
     </script>
     <style>
@@ -116,8 +114,8 @@
             <div class="col-md-5">
                 <strong style="font-size: 20px">助教清單</strong>
             </div>
-            <div class="col-md-4" style="padding:0px">
-                <asp:TextBox type="text" class="form-control" ID="StIDTxt" placeholder="新增助教的學號" runat="server" MaxLength="8" style="height: 80%;" />
+            <div class="col-md-4" style="padding: 0px">
+                <asp:TextBox type="text" class="form-control" ID="StIDTxt" placeholder="新增助教的學號" runat="server" MaxLength="8" Style="height: 80%;" />
             </div>
             <div class="col-md-3">
                 <asp:Button ID="SearchIDBtn" class="btn btn-outline-dark btn-sm" Text="新增助教" runat="server" OnClick="SearchIDBtn_Click"></asp:Button>
@@ -145,8 +143,9 @@
                         <table class="table_a">
                             <tbody>
                                 <tr>
-                                    <th>姓名
-                                                <small class="text-muted">FullName</small>
+                                    <th>
+                                        <a>姓名</a>
+                                        <small class="text-muted">FullName</small>
                                         <small class="text-danger">*必須填寫</small>
                                     </th>
                                 </tr>
@@ -156,8 +155,8 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>會員帳號/學號
-                                                <small class="text-muted">UserName</small>
+                                    <th><a>帳號/學號</a>
+                                        <small class="text-muted">UserName</small>
                                         <small class="text-danger">*請填寫學號，密碼也是學號喔!</small>
                                     </th>
                                 </tr>
@@ -167,8 +166,8 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>系級
-                                                <small class="text-muted">Department</small>
+                                    <th><a>系級</a>
+                                        <small class="text-muted">Department</small>
                                         <small class="text-danger">*必須填寫</small>
                                     </th>
                                 </tr>
@@ -185,8 +184,9 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>班級
-                                                <small class="text-muted">Class</small>
+                                    <th>
+                                        <a>班級</a>
+                                        <small class="text-muted">Class</small>
                                         <small class="text-danger">*必須填寫</small>
                                     </th>
                                 </tr>
@@ -225,7 +225,7 @@
                 </div>
                 <div class="modal-footer">
                     <asp:Button ID="Button3" type="button" class="btn btn-secondary" data-dismiss="modal" Text="取消" runat="server"></asp:Button>
-                    <asp:Button ID="Button2" class="btn btn-primary" Text="確定" runat="server" OnClientClick="aaa();"></asp:Button>
+                    <asp:Button ID="Button2" class="btn btn-primary" Text="確定" runat="server" OnClick="Button2_Click"></asp:Button>
                 </div>
             </div>
         </div>

@@ -12,6 +12,7 @@ namespace StudentSystem
 {
     public partial class TA_List : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             string Course = Convert.ToString(Session["CourseName"]).Trim();
@@ -80,40 +81,85 @@ namespace StudentSystem
         }
         protected void SearchIDBtn_Click(object sender, EventArgs e)
         {
+            string StID = StIDTxt.Text.Trim();
             Page.ClientScript.RegisterStartupScript(Page.GetType(), "", "<script language=JavaScript>showModal();</script>");
+
+            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["myDB"].ConnectionString);
+            con.Open();
+            SqlDataAdapter AccountsDA = new SqlDataAdapter("Select ID From Accounts", con);
+            SqlDataAdapter StudentCoursesListDA = new SqlDataAdapter("Select ID From StudentCoursesList", con);
+            SqlDataAdapter adapter1 = new SqlDataAdapter("Select UserName, FullName,  Department, Class From Accounts Where UserName='" + StID + "'", con);
+            SqlDataAdapter adapter2 = new SqlDataAdapter("Select ID, Type, UserName, CouseID, FullName From StudentCoursesList Where UserName='" + StID + "'", con);
+
+            DataTable AccountsDT = new DataTable();
+            DataTable StudentCoursesListDT = new DataTable();
+            DataTable dt = new DataTable();
+            DataTable dt2 = new DataTable();
+            AccountsDA.Fill(AccountsDT);
+            Session["AccountsCount"] = AccountsDT.Rows.Count;
+            StudentCoursesListDA.Fill(StudentCoursesListDT);
+            Session["CoursesListCount"] = StudentCoursesListDT.Rows.Count;
+            adapter1.Fill(dt);
+
+            if (dt.Rows.Count != 0)
+            {
+                Session["b"] = "T";
+                FullNameTextBox.Text = Convert.ToString(dt.Rows[0]["FullName"]).Trim();
+                UserNameTextBox.Text = Convert.ToString(dt.Rows[0]["UserName"]).Trim();
+                DepartmentSelect.Value = Convert.ToString(dt.Rows[0]["Department"]).Trim();
+                ClassSelect.Value = Convert.ToString(dt.Rows[0]["Class"]).Trim();
+            }
+            else
+            {
+                Session["b"] = "F";
+            }
+
         }
 
-        //protected void Button2_Click(object sender, EventArgs e)
-        //{
-        //    //索引值
-        //    //Session["id"] = Convert.ToInt32(dt.Rows[dt.Rows.Count - 1]["ID"]);
-        //    //建立資料庫連線
-        //    SqlConnection con = new SqlConnection(
-        //                       WebConfigurationManager.ConnectionStrings["myDB"].ConnectionString);
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            //索引值
+            //Session["id"] = Convert.ToInt32(dt.Rows[dt.Rows.Count - 1]["ID"]);
+            //建立資料庫連線
+            SqlConnection con = new SqlConnection(
+                               WebConfigurationManager.ConnectionStrings["myDB"].ConnectionString);
 
-        //    SqlCommand cmd = null;
-        //    //開啓資料庫連線
-        //    con.Open();
-        //    //cmd = new SqlCommand("insert into StudentFile (FullName) values(@FullName);SELECT @@IDENTITY", con);
-        //    //建立SqlCommand查詢命令
-        //    cmd = new SqlCommand("Insert Into Accounts (ID, FullName, UserName, Password, Department, Class) values (@ID, @FullName, @UserName, @Password, @Department, @Class)", con);
-        //    cmd.Parameters.Add("@ID", SqlDbType.NVarChar).Value = Convert.ToInt16(Session["id"]) + 1;
-        //    cmd.Parameters.Add("@FullName", SqlDbType.NVarChar).Value = FullNameTextBox.Text;
-        //    cmd.Parameters.Add("@UserName", SqlDbType.NVarChar).Value = UserNameTextBox.Text;
-        //    cmd.Parameters.Add("@Password", SqlDbType.NVarChar).Value = UserNameTextBox.Text;
-        //    //cmd.Parameters.Add("@Password", SqlDbType.NVarChar, 4).Value = TextBox3.Text;
-        //    //cmd.Parameters.Add("@Email", SqlDbType.NVarChar, 4).Value = TextBox5.Text;
-        //    //cmd.Parameters.Add("@PhoneNumber", SqlDbType.NVarChar, 4).Value = TextBox6.Text;
-        //    cmd.Parameters.Add("@Department", SqlDbType.NVarChar).Value = DepartmentSelect.Value;
-        //    cmd.Parameters.Add("@Class", SqlDbType.NVarChar).Value = ClassSelect.Value;
-        //    //cmd.Parameters.Add("@DisplayName", SqlDbType.NVarChar, 50).Value = CourseSelect.Value;
-        //    cmd.ExecuteNonQuery();
-
-        //    cmd.Dispose();
-        //    con.Close();
-        //    con.Dispose();
-        //    //txtMsg.Text = string.Format("新增產品資料記錄{0}筆成功！", rows);
-        //}
+            SqlCommand cmd = null;
+            //開啓資料庫連線
+            con.Open();
+            //cmd = new SqlCommand("insert into StudentFile (FullName) values(@FullName);SELECT @@IDENTITY", con);
+            ////////////////////Account原本沒有資料b=true/////////////////////
+            //建立SqlCommand查詢命令
+            string str = Convert.ToString(Session["b"]);
+            if (str == "F")
+            {
+                cmd = new SqlCommand(
+                    "Insert Into Accounts (ID, type, term, FullName, UserName, Password, Department, Class) "
+                    + "values (@ID, @type, @term, @FullName, @UserName, @Password, @Department, @Class)", con);
+                cmd.Parameters.Add("@ID", SqlDbType.NVarChar).Value = Convert.ToInt32(Session["AccountsCount"]) + 1;
+                cmd.Parameters.Add("@FullName", SqlDbType.NVarChar).Value = FullNameTextBox.Text;
+                cmd.Parameters.Add("@type", SqlDbType.NVarChar).Value = 1;
+                cmd.Parameters.Add("@term", SqlDbType.NVarChar).Value = 1061;
+                cmd.Parameters.Add("@UserName", SqlDbType.NVarChar).Value = UserNameTextBox.Text;
+                cmd.Parameters.Add("@Password", SqlDbType.NVarChar).Value = UserNameTextBox.Text;
+                cmd.Parameters.Add("@Department", SqlDbType.NVarChar).Value = DepartmentSelect.Value;
+                cmd.Parameters.Add("@Class", SqlDbType.NVarChar).Value = ClassSelect.Value;
+                cmd.ExecuteNonQuery();
+            }
+            cmd = new SqlCommand(
+                "Insert Into StudentCoursesList (ID, Type, UserName, CourseID, DisplayName) "
+                + "values (@ID, @Type, @UserName, @CourseID, @DisplayName)", con);
+            cmd.Parameters.Add("@ID", SqlDbType.NVarChar).Value = Convert.ToInt32(Session["CoursesListCount"]) + 1;
+            cmd.Parameters.Add("@Type", SqlDbType.NVarChar).Value = 2;
+            cmd.Parameters.Add("@UserName", SqlDbType.NVarChar).Value = UserNameTextBox.Text;
+            cmd.Parameters.Add("@CourseID", SqlDbType.NVarChar).Value = FullNameTextBox.Text;
+            cmd.Parameters.Add("@DisplayName", SqlDbType.NVarChar).Value = Convert.ToString(Session["CourseName"]).Trim();
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            con.Close();
+            con.Dispose();
+            //txtMsg.Text = string.Format("新增產品資料記錄{0}筆成功！", rows);
+        }
         //--------------建立用戶button--------------尾//
     }
 }
